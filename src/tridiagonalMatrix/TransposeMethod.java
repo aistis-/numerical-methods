@@ -37,10 +37,8 @@ public class TransposeMethod {
 		if (level < this.matrix.getSize()) {
 			
 			float newC = - (matrix.get("top", level) / (matrix.get("bottom", level) * C + matrix.get("middle", level)));
-
-			float result = calculateUnknown(level + 1, newC, newD);
 			
-			this.unknows[level - 1] = newC * result + newD;
+			this.unknows[level - 1] = newC * calculateUnknown(level + 1, newC, newD) + newD;
 
 			return this.unknows[level - 1];
 		} else {

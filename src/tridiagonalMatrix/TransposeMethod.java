@@ -25,7 +25,7 @@ public class TransposeMethod {
 		float C = - (matrix.get("top", 1) / matrix.get("middle", 1));
 		float D = (this.result[0] / matrix.get("middle", 1));
 		
-		this.unknows[0] = this.calculateUnknown(2, C, D);
+		this.unknows[0] = C * this.calculateUnknown(2, C, D) + D;
 		
 		System.out.println("\nUnknown variables solutions:\n" + Arrays.toString(this.unknows));
 	}
@@ -40,12 +40,12 @@ public class TransposeMethod {
 
 			float result = calculateUnknown(level + 1, newC, newD);
 			
-			this.unknows[level - 1] = result;
+			this.unknows[level - 1] = newC * result + newD;
 
-			return result;
+			return this.unknows[level - 1];
 		} else {
 			this.unknows[level - 1] = newD;
-		
+
 			return newD;
 		}
 	}

@@ -34,7 +34,7 @@ public class Matrix {
 		}
 	}
 	
-	public float[] addNumber(float[] diagonal, float number) {
+	private float[] addNumber(float[] diagonal, float number) {
 		float[] result = Arrays.copyOf(diagonal, diagonal.length + 1);
 	    result[diagonal.length] = number;
 	    return result;
@@ -92,5 +92,25 @@ public class Matrix {
 	
 	public int getSize() {
 		return this.diagonalMiddle.length;
+	}
+	
+	public float get(String diagonal, int row) {
+		float result;
+		
+		switch (diagonal) {
+			case "top": 
+				result = this.diagonalTop[row - 1];
+				break;
+			case "middle": 
+				result = this.diagonalMiddle[row - 1];
+				break;
+			case "bottom": 
+				result = this.diagonalBottom[row - 2];
+				break;
+			default:
+				result = 0;
+		}
+		
+		return result;
 	}
 }

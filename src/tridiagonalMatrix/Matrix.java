@@ -34,7 +34,7 @@ public class Matrix {
 		}
 	}
 	
-	private float[] addNumber(float[] diagonal, float number) {
+	public float[] addNumber(float[] diagonal, float number) {
 		float[] result = Arrays.copyOf(diagonal, diagonal.length + 1);
 	    result[diagonal.length] = number;
 	    return result;
@@ -88,5 +88,9 @@ public class Matrix {
 	
 	private void printFloat(float number) {
 		System.out.printf("%5.2f", number);
+	}
+	
+	public int getSize() {
+		return this.diagonalMiddle.length;
 	}
 }

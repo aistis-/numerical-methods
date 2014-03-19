@@ -1,5 +1,6 @@
 import tools.Reader;
 import tridiagonalMatrix.Matrix;
+import tridiagonalMatrix.TransposeMethod;
 
 public class App {
 
@@ -12,6 +13,9 @@ public class App {
 		
 		System.out.println("Matrix readed:");
 		matrix.print();
+		
+		TransposeMethod method = new TransposeMethod(matrix, fileReader.getLine(4));
+		method.calculate();
 		
 	}
 

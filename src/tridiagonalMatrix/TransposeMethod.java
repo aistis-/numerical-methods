@@ -27,7 +27,7 @@ public class TransposeMethod {
 		
 		this.unknows[0] = this.calculateUnknown(2, C, D);
 		
-		System.out.println("Unknown variables solutions: " + Arrays.toString(this.unknows));
+		System.out.println("\nUnknown variables solutions:\n" + Arrays.toString(this.unknows));
 	}
 	
 	private float calculateUnknown(int level, float C, float D) {
@@ -48,5 +48,26 @@ public class TransposeMethod {
 		
 			return newD;
 		}
+	}
+	
+	public boolean isSolvable() {
+		boolean foundStrictEquality = false;
+		
+		for (int i = 1; i <= this.matrix.getSize(); i++) {
+			if (Math.abs(this.matrix.get("middle", i)) < Math.abs(this.matrix.get("top", i)) + Math.abs(this.matrix.get("bottom", i))) {
+				
+				System.out.println("\nMiddle diagonal is less than same row diagonals numbers sum");
+				
+				return false;
+			} else if (Math.abs(this.matrix.get("middle", i)) == Math.abs(this.matrix.get("top", i)) + Math.abs(this.matrix.get("bottom", i))) {
+				foundStrictEquality = true;
+			}
+		}
+		
+		if (false == foundStrictEquality) {
+			System.out.println("\nNot found any middle diagonal number which would be equal to his neighbors");
+		}
+		
+		return foundStrictEquality;
 	}
 }

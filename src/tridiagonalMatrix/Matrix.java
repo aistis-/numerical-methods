@@ -76,8 +76,8 @@ public class Matrix {
 		}
 	}
 	
-	private boolean validate() {
-		if(0 < this.diagonalTop.length && 0 < this.diagonalMiddle.length && 0 < this.diagonalBottom.length) {
+	public boolean validate() {
+		if (0 < this.diagonalTop.length && 0 < this.diagonalMiddle.length && 0 < this.diagonalBottom.length) {
 			if (this.diagonalTop.length == this.diagonalMiddle.length - 1 && this.diagonalBottom.length == this.diagonalMiddle.length - 1) {
 				return true;
 			}
@@ -87,7 +87,7 @@ public class Matrix {
 	}
 	
 	private void printFloat(float number) {
-		System.out.printf("%5.2f", number);
+		System.out.printf("%6.2f", number);
 	}
 	
 	public int getSize() {
@@ -95,6 +95,10 @@ public class Matrix {
 	}
 	
 	public float get(String diagonal, int row) {
+		if (row > this.diagonalMiddle.length || (row == this.diagonalMiddle.length && diagonal == "top") || (row == 1 && diagonal == "bottom")) {
+			return 0;
+		}
+		
 		float result;
 		
 		switch (diagonal) {

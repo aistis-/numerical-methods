@@ -8,11 +8,11 @@ public class App {
 		Reader fileReader = new Reader("test_data_1.txt");
 		
 		Matrix matrix = new Matrix();
-		
 		matrix.fillData(fileReader.getLine(1), fileReader.getLine(2), fileReader.getLine(3));
 		
-		matrix.print(true);
-		matrix.print(false);
+		System.out.println("Matrix readed:");
+		matrix.print();
+		
 	}
 
 }

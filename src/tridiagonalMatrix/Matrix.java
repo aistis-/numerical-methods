@@ -44,13 +44,9 @@ public class Matrix {
 		this.print(true);
 	}
 	
-	public void print(boolean full) {
+	public void print(boolean formatted) {
 		if (this.validate()) {
-			if (full) {
-				System.out.println("Top diagonal: " + Arrays.toString(this.diagonalTop));
-				System.out.println("Middle diagonal: " + Arrays.toString(this.diagonalMiddle));
-				System.out.println("Bottom diagonal: " + Arrays.toString(this.diagonalBottom));
-			} else {
+			if (formatted) {
 				int n = diagonalMiddle.length;
 				
 				for (int i = 0; i < n; i++) {
@@ -70,6 +66,10 @@ public class Matrix {
 				    
 				    System.out.print("\n");
 				}
+			} else {
+				System.out.println("Top diagonal: " + Arrays.toString(this.diagonalTop));
+				System.out.println("Middle diagonal: " + Arrays.toString(this.diagonalMiddle));
+				System.out.println("Bottom diagonal: " + Arrays.toString(this.diagonalBottom));
 			}
 		} else {
 			System.out.println("Matrix is empty or filled incorrectly");

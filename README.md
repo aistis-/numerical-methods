@@ -1,4 +1,4 @@
-tridiagonal-matrix
+Numerical Methods course tasks
 ==================
 
-A task for Numerical Methods course in Vilnius University
+Tasks for Numerical Methods course in Vilnius University

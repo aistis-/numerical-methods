@@ -2,7 +2,7 @@ import tools.Reader;
 import tridiagonalMatrix.Matrix;
 import tridiagonalMatrix.TransposeMethod;
 
-public class App {
+public class TridiagonalMatrix {
 
 	public static void main(String[] args) {
 

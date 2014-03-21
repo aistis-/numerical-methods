@@ -24,7 +24,7 @@ public class Reader {
 		
         Scanner scanner = new Scanner(stream);
       
-        System.out.println("Reading from file " + filePath + " started");
+        System.out.println("Reading from file " + filePath);
       
         while(scanner.hasNextLine()){
         	String line = scanner.nextLine();
@@ -33,6 +33,8 @@ public class Reader {
             	this.fileData.add(line);
         	}
         }
+        
+        System.out.println("File read was successful");
       
         scanner.close();
         

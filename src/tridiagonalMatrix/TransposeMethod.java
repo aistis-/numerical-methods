@@ -49,23 +49,15 @@ public class TransposeMethod {
 	}
 	
 	public boolean isSolvable() {
-		boolean foundStrictEquality = false;
-		
 		for (int i = 1; i <= this.matrix.getSize(); i++) {
 			if (Math.abs(this.matrix.get("middle", i)) < Math.abs(this.matrix.get("top", i)) + Math.abs(this.matrix.get("bottom", i))) {
 				
 				System.out.println("\nMiddle diagonal is less than same row diagonals numbers sum");
 				
 				return false;
-			} else if (Math.abs(this.matrix.get("middle", i)) == Math.abs(this.matrix.get("top", i)) + Math.abs(this.matrix.get("bottom", i))) {
-				foundStrictEquality = true;
 			}
 		}
 		
-		if (false == foundStrictEquality) {
-			System.out.println("\nNot found any middle diagonal number which would be equal to his neighbors");
-		}
-		
-		return foundStrictEquality;
+		return true;
 	}
 }

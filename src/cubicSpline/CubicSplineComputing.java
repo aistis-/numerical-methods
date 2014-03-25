@@ -19,6 +19,8 @@ public class CubicSplineComputing {
 		this.a = Float.parseFloat(numbers[0]);
 		this.b = Float.parseFloat(numbers[1]);
 		this.i = Integer.parseInt(numbers[2]);
+		
+		numbers = xLine.split(" ");
 
 		for (int index = 0; index < numbers.length; index++) {
 			this.x = this.addNumber(this.x, Float.parseFloat(numbers[index]));
@@ -47,10 +49,10 @@ public class CubicSplineComputing {
 //				System.out.print(x[i] + "," + y[i] + ";");
 			}
 		} else {
-			this.i = this.x.length;
+			this.i = this.x.length - 1;
 			
 			x = this.x;
-			x = this.y;
+			y = this.y;
 		}
 		
 		
@@ -93,6 +95,13 @@ public class CubicSplineComputing {
 		
 		result[0] = 0;
 		result[this.i] = 0;
+		
+		System.out.println(Arrays.toString(x));
+		System.out.println(Arrays.toString(y));
+		System.out.println(Arrays.toString(h));
+		System.out.println(Arrays.toString(diagonalTop));
+		System.out.println(Arrays.toString(diagonalMiddle));
+		System.out.println(Arrays.toString(diagonalBottom));
 		
 		TransposeMethod matrixComputing = new TransposeMethod(matrix, result);
 		if (matrixComputing.isSolvable()) {

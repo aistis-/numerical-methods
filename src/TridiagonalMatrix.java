@@ -29,7 +29,7 @@ public class TridiagonalMatrix {
 				if (method.isSolvable()) {
 					method.calculate();
 				} else {
-					System.out.println("The matrix is not solvable with transpose method");
+					System.out.println("The equation is not solvable with transpose method");
 				}
 			} else {
 				System.out.println("Matrix was not filled corectly");

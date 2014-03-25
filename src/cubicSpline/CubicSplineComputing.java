@@ -46,8 +46,10 @@ public class CubicSplineComputing {
 				x[i] = this.a + intervalDelta * i;
 				y[i] = (float) this.aproximatingFunction(x[i]);
 			}
-		} else {
+		} else {			
 			this.i = this.x.length - 1;
+			
+			h = new float[this.i];
 			
 			x = this.x;
 			y = this.y;
@@ -65,11 +67,10 @@ public class CubicSplineComputing {
 		
 		for (int i = 0; i <= this.i - 1; i++) {
 			if (i < this.i && i != 0) {
-				diagonalTop[i] = h[i] / (h[i-1] + h[i]);
-				diagonalBottom[i-1] = h[i-1] / (h[i-1] + h[i]);
+				diagonalTop[i] = h[i];
+				diagonalBottom[i-1] = h[i-1];
+				diagonalMiddle[i] = 2 * (h[i-1] + h[i]); 
 			}
-			
-			diagonalMiddle[i] = 2;
 		}
 		
 		diagonalMiddle[0] = 1;
@@ -87,11 +88,20 @@ public class CubicSplineComputing {
 		float[] result = new float[this.i + 1];
 		
 		for (int i = 0; i < this.i; i++) {
-			result[i] = (y[i + 1] - y[i]) / h[i];
+			if (i == 0) {
+				result[i] = 6 * ((y[i + 1] - y[i]) / h[i]);
+			} else {
+				result[i] = 6 * (((y[i + 1] - y[i]) / h[i]) - ((y[i] - y[i - 1]) / h[i - 1]));
+			}
 		}
 		
 		result[0] = 0;
 		result[this.i] = 0;
+		
+		System.out.println(Arrays.toString(result));
+		System.out.println(Arrays.toString(diagonalTop));
+		System.out.println(Arrays.toString(diagonalMiddle));
+		System.out.println(Arrays.toString(diagonalBottom));
 		
 		System.out.println("x array");
 		System.out.println(Arrays.toString(x));

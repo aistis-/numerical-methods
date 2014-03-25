@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import tools.Reader;
+import tridiagonalMatrix.Matrix;
 
 public class CubicSplineComputing {
 	
@@ -11,14 +12,14 @@ public class CubicSplineComputing {
 	private float[] y = new float[0];
 	private float a;
 	private float b;
-	private float i;
+	private int i;
 	
 	public CubicSplineComputing(String intervals, String xLine, String yLine) {
 		String[] numbers = xLine.split(" ");
 		
 		this.a = Float.parseFloat(numbers[0]);
 		this.b = Float.parseFloat(numbers[1]);
-		this.i = Float.parseFloat(numbers[2]);
+		this.i = Integer.parseInt(numbers[2]);
 
 		for (int index = 0; index < numbers.length; index++) {
 			this.x = this.addNumber(this.x, Float.parseFloat(numbers[index]));
@@ -32,7 +33,33 @@ public class CubicSplineComputing {
 	}
 	
 	public void compute() {
+		float intervalDelta = (this.b - this.a) / this.i;
 		
+		float[] x = new float[this.i + 1];
+		float[] y = new float[this.i + 1];
+		float[] h = new float[this.i];
+		float[] g = new float[this.i];
+		
+		g[0] = 0;
+		g[this.i] = 0;
+		
+		float[][] splineCoef = new float[this.i][4];
+		
+		/* Count x and y by i*/
+		for (int i = 0; i <= this.i; i++) {
+			x[i] = this.a + intervalDelta * i;
+			y[i] = (float) this.aproximatingFunction(x[i]);
+			
+			splineCoef[i][4] = y[i]; // y from i
+		}
+		
+		/* Count h by i*/
+		for (int i = 0; i < this.i; i++) {
+			h[i] = x[i + 1] - x[i];
+		}
+		
+		Matrix matrix = new Matrix();
+		matrix.
 	}
 
 	private double aproximatingFunction(double x) {

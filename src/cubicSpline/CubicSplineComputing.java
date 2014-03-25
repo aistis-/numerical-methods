@@ -1,9 +1,6 @@
 package cubicSpline;
 
 import java.util.Arrays;
-import java.util.Scanner;
-
-import tools.Reader;
 import tridiagonalMatrix.Matrix;
 
 public class CubicSplineComputing {
@@ -58,8 +55,33 @@ public class CubicSplineComputing {
 			h[i] = x[i + 1] - x[i];
 		}
 		
+		/* Fill matrix with data */
+		float[] diagonalTop = new float[this.i];
+		float[] diagonalMiddle = new float[this.i + 1];
+		float[] diagonalBottom = new float[this.i];
+		
+		for (int i = 0; i <= i; i++) {
+			if (i < this.i && i != 0) {
+				diagonalTop[i] = h[i] / (h[i-1] + h[i]);
+			}
+			
+			if (i < this.i - 1) {
+				diagonalBottom[i] = h[i-1] / (h[i-1] + h[i]);
+			}
+			
+			diagonalMiddle[i] = 2;
+		}
+		
+		diagonalMiddle[0] = 2;
+		diagonalMiddle[this.i] = 1;
+		
+		diagonalTop[0] = 0;
+		diagonalBottom[this.i - 1] = 0;
+		
 		Matrix matrix = new Matrix();
-		matrix.
+		matrix.setDiagonalTop(diagonalTop);
+		matrix.setDiagonalMiddle(diagonalMiddle);
+		matrix.setDiagonalBottom(diagonalBottom);
 	}
 
 	private double aproximatingFunction(double x) {

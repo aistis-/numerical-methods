@@ -60,4 +60,8 @@ public class TransposeMethod {
 		
 		return true;
 	}
+	
+	public float[] getUnknows() {
+		return this.unknows;
+	}
 }

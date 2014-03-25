@@ -1,14 +1,24 @@
 package cubicSpline;
 
 import java.util.Arrays;
+import java.util.Scanner;
+
+import tools.Reader;
 
 public class CubicSplineComputing {
 	
 	private float[] x = new float[0];
 	private float[] y = new float[0];
+	private float a;
+	private float b;
+	private float i;
 	
-	public CubicSplineComputing(String xLine, String yLine) {
+	public CubicSplineComputing(String intervals, String xLine, String yLine) {
 		String[] numbers = xLine.split(" ");
+		
+		this.a = Float.parseFloat(numbers[0]);
+		this.b = Float.parseFloat(numbers[1]);
+		this.i = Float.parseFloat(numbers[2]);
 
 		for (int index = 0; index < numbers.length; index++) {
 			this.x = this.addNumber(this.x, Float.parseFloat(numbers[index]));

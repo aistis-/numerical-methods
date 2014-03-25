@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import cubicSpline.CubicSplineComputing;
 import tools.Reader;
 
 public class CubicSpline {
@@ -15,7 +16,13 @@ public class CubicSpline {
 		if (fileReader.read(s.next())) {
 			System.out.println();
 			
+			CubicSplineComputing computing = new CubicSplineComputing(
+					fileReader.getLine(1),
+					fileReader.getLine(2),
+					fileReader.getLine(3)
+			);
 			
+			computing.compute();
 		}
 	}
 }

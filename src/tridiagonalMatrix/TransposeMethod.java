@@ -55,11 +55,20 @@ public class TransposeMethod {
 	}
 	
 	public boolean isSolvable() {
+		boolean foundStrictInequality = false;
+		
 		for (int i = 1; i <= this.matrix.getSize(); i++) {
 			if (Math.abs(this.matrix.get("middle", i)) < Math.abs(this.matrix.get("top", i)) + Math.abs(this.matrix.get("bottom", i))) {
 				
 				System.out.println("\nMiddle diagonal is less than same row diagonals numbers sum");
 				
+				return false;
+			} else if (this.matrix.get("middle", i) != this.matrix.get("top", i) + this.matrix.get("bottom", i)) {
+				foundStrictInequality = true;
+			}
+			
+			if (!foundStrictInequality) {
+				System.out.println("\nThere is no middle diagonal number which has strict inequality with his row neighbors");
 				return false;
 			}
 		}

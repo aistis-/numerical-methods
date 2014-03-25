@@ -45,8 +45,6 @@ public class CubicSplineComputing {
 			for (int i = 0; i <= this.i; i++) {
 				x[i] = this.a + intervalDelta * i;
 				y[i] = (float) this.aproximatingFunction(x[i]);
-				
-//				System.out.print(x[i] + "," + y[i] + ";");
 			}
 		} else {
 			this.i = this.x.length - 1;
@@ -54,7 +52,6 @@ public class CubicSplineComputing {
 			x = this.x;
 			y = this.y;
 		}
-		
 		
 		/* Count h by i*/
 		for (int i = 0; i < this.i; i++) {
@@ -131,10 +128,10 @@ public class CubicSplineComputing {
 			
 			for (int i = 0; i < this.i; i++) {
 				System.out.print("S[" + (i + 1) + "] = ");
-				System.out.print(H[i] + ", ");
-				System.out.print(G[i] + ", ");
-				System.out.print(e[i] + ", ");
-				System.out.println(y[i]);
+				System.out.print(y[i] + " y, ");
+				System.out.print(e[i] + " e, ");
+				System.out.print(G[i] + " G, ");
+				System.out.println(H[i] + " H");
 			}
 			
 		} else {

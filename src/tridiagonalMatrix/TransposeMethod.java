@@ -21,6 +21,12 @@ public class TransposeMethod {
 		}
 	}
 	
+	public TransposeMethod(Matrix matrix, float[] result) {
+		this.matrix = matrix;
+		this.result = result;
+		this.unknows = new float[matrix.getSize()];
+	}
+	
 	public void calculate() {
 		float C = - (matrix.get("top", 1) / matrix.get("middle", 1));
 		float D = (this.result[0] / matrix.get("middle", 1));

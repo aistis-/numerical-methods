@@ -22,6 +22,7 @@ public class CubicSpline {
 					fileReader.getLine(3)
 			);
 			
+			System.out.println("Part A:");
 			computing.compute(true);
 			
 			computing = new CubicSplineComputing(
@@ -29,6 +30,9 @@ public class CubicSpline {
 					fileReader.getLine(2),
 					fileReader.getLine(3)
 			);
+			
+			System.out.println("=================================");
+			System.out.println("Part B:");
 			computing.compute(false);
 		}
 	}

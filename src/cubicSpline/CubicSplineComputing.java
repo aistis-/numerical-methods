@@ -96,12 +96,14 @@ public class CubicSplineComputing {
 		result[0] = 0;
 		result[this.i] = 0;
 		
+		System.out.println("x array");
 		System.out.println(Arrays.toString(x));
+		
+		System.out.println("y array");
 		System.out.println(Arrays.toString(y));
+		
+		System.out.println("h array");
 		System.out.println(Arrays.toString(h));
-		System.out.println(Arrays.toString(diagonalTop));
-		System.out.println(Arrays.toString(diagonalMiddle));
-		System.out.println(Arrays.toString(diagonalBottom));
 		
 		TransposeMethod matrixComputing = new TransposeMethod(matrix, result);
 		if (matrixComputing.isSolvable()) {

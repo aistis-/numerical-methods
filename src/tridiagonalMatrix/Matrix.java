@@ -14,6 +14,18 @@ public class Matrix {
 		this.diagonalBottom = new float[0];
 	}
 	
+	public void setDiagonalTop(float[] diagonalTop) {
+		this.diagonalTop = diagonalTop;
+	}
+	
+	public void setDiagonalMiddle(float[] diagonalMiddle) {
+		this.diagonalMiddle = diagonalMiddle;
+	}
+	
+	public void setDiagonalBottom(float[] diagonalBottom) {
+		this.diagonalBottom = diagonalBottom;
+	}
+	
 	public void fillData(String diagonalTop, String diagonalMiddle, String diagonalBottom) {
 		String[] numbers = diagonalTop.split(" ");
 

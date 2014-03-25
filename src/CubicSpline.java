@@ -22,7 +22,14 @@ public class CubicSpline {
 					fileReader.getLine(3)
 			);
 			
-			computing.compute();
+			computing.compute(true);
+			
+			computing = new CubicSplineComputing(
+					fileReader.getLine(1),
+					fileReader.getLine(2),
+					fileReader.getLine(3)
+			);
+			computing.compute(false);
 		}
 	}
 }

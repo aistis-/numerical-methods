@@ -31,18 +31,28 @@ public class CubicSplineComputing {
 		}
 	}
 	
-	public void compute() {
+	public void compute(boolean function) {
 		float intervalDelta = (this.b - this.a) / this.i;
 		
 		float[] x = new float[this.i + 1];
 		float[] y = new float[this.i + 1];
 		float[] h = new float[this.i];
 		
-		/* Count x and y by i*/
-		for (int i = 0; i <= this.i; i++) {
-			x[i] = this.a + intervalDelta * i;
-			y[i] = (float) this.aproximatingFunction(x[i]);
+		if (function) {
+			/* Count x and y by i*/
+			for (int i = 0; i <= this.i; i++) {
+				x[i] = this.a + intervalDelta * i;
+				y[i] = (float) this.aproximatingFunction(x[i]);
+				
+//				System.out.print(x[i] + "," + y[i] + ";");
+			}
+		} else {
+			this.i = this.x.length;
+			
+			x = this.x;
+			x = this.y;
 		}
+		
 		
 		/* Count h by i*/
 		for (int i = 0; i < this.i; i++) {

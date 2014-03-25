@@ -2,13 +2,13 @@ package tridiagonalMatrix;
 
 import java.util.Arrays;
 
-public class TransposeMethod {
+public class ThomasAlgorithm {
 
 	private Matrix matrix;
 	private float[] result;
 	private float[] unknows ;
 	
-	public TransposeMethod(Matrix matrix, String result) {
+	public ThomasAlgorithm(Matrix matrix, String result) {
 		this.matrix = matrix;
 		
 		this.result = new float[matrix.getSize()];
@@ -21,7 +21,7 @@ public class TransposeMethod {
 		}
 	}
 	
-	public TransposeMethod(Matrix matrix, float[] result) {
+	public ThomasAlgorithm(Matrix matrix, float[] result) {
 		this.matrix = matrix;
 		this.result = result;
 		this.unknows = new float[matrix.getSize()];

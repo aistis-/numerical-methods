@@ -3,7 +3,7 @@ package cubicSpline;
 import java.util.Arrays;
 
 import tridiagonalMatrix.Matrix;
-import tridiagonalMatrix.TransposeMethod;
+import tridiagonalMatrix.ThomasAlgorithm;
 
 public class CubicSplineComputing {
 	
@@ -112,7 +112,7 @@ public class CubicSplineComputing {
 		System.out.println("h array");
 		System.out.println(Arrays.toString(h));
 		
-		TransposeMethod matrixComputing = new TransposeMethod(matrix, result);
+		ThomasAlgorithm matrixComputing = new ThomasAlgorithm(matrix, result);
 		if (matrixComputing.isSolvable()) {
 			matrixComputing.calculate();
 			float[] g = matrixComputing.getUnknows();

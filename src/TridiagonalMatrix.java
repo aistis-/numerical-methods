@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import tools.Reader;
 import tridiagonalMatrix.Matrix;
-import tridiagonalMatrix.TransposeMethod;
+import tridiagonalMatrix.ThomasAlgorithm;
 
 public class TridiagonalMatrix {
 
@@ -24,12 +24,12 @@ public class TridiagonalMatrix {
 				System.out.println("Matrix from the file");
 				matrix.print();
 				
-				TransposeMethod method = new TransposeMethod(matrix, fileReader.getLine(4));
+				ThomasAlgorithm method = new ThomasAlgorithm(matrix, fileReader.getLine(4));
 				
 				if (method.isSolvable()) {
 					method.calculate();
 				} else {
-					System.out.println("The equation is not solvable with transpose method");
+					System.out.println("The equation is not solvable with Thomas algorithm");
 				}
 			} else {
 				System.out.println("Matrix was not filled corectly");
